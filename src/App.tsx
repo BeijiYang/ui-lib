@@ -1,10 +1,51 @@
 import React from 'react';
 import './styles/index.scss';
+import Button, { ButtonSize, ButtonType } from './components/Button';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Button
+          btnType={ButtonType.Link}
+          href="https://www.google.com"
+          disabled
+        >
+          google
+        </Button>
+
+        <Button
+          btnType={ButtonType.Link}
+          href="https://www.google.com"
+          target='_blank'
+        >
+          google
+        </Button>
+
+        <Button>
+          Button
+        </Button>
+
+        <Button size={ButtonSize.Large}>
+          Large Button
+        </Button>
+
+        <Button size={ButtonSize.Small}>
+          Small Button
+        </Button>
+
+        <Button btnType={ButtonType.Primary}>
+          Primary Button
+        </Button>
+        
+        <Button btnType={ButtonType.Danger}>
+          Danger Button
+        </Button>
+
+        <Button disabled>
+          Disabled Button
+        </Button>
+
         <h1>h1</h1>
         <h3>h3</h3>
         <p>
