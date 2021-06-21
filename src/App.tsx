@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/index.scss';
-import Button, { ButtonSize, ButtonType } from './components/Button';
+import Button, { ButtonSize, ButtonType } from './components/Button/Button';
 
 function App() {
   return (

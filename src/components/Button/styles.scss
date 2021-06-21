@@ -16,7 +16,7 @@
   box-shadow: $btn-box-shadow;
   cursor: pointer;
   transition: $btn-transition;
-
+  
   &.disabled, // class & prop
   &[disabled] {
     cursor: not-allowed;
@@ -27,6 +27,10 @@
     > * {
       pointer-events: none;
     }
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 
