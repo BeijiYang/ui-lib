@@ -1,6 +1,8 @@
 import React from 'react';
 import './styles/index.scss';
 import Button, { ButtonSize, ButtonType } from './components/Button/Button';
+import Menu from './components/Menu/Menu';
+import MenuItem from './components/Menu/MenuItem';
 
 function App() {
   return (
@@ -45,6 +47,18 @@ function App() {
         <Button disabled>
           Disabled Button
         </Button>
+
+        <br />
+
+        <Menu defaultIndex={1}>
+          {
+            ['item-a', 'item-b', 'item-c'].map(str => (
+              <MenuItem>
+                {str}
+              </MenuItem>
+            ))
+          }
+        </Menu>
 
         <h1>h1</h1>
         <h3>h3</h3>
