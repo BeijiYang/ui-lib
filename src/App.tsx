@@ -50,10 +50,18 @@ function App() {
 
         <br />
 
-        <Menu defaultIndex={1}>
+        <Menu
+          defaultIndex={1}
+          onSelect={num => console.log(num)}
+        >
           {
-            ['item-a', 'item-b', 'item-c'].map(str => (
-              <MenuItem>
+            ['item-a', 'item-b', 'item-c'].map((str, index) => (
+              <MenuItem
+                key={str}
+                index={index}
+                disabled={index === 1}
+
+              >
                 {str}
               </MenuItem>
             ))
