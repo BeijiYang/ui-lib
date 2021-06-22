@@ -19,7 +19,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   const context = useContext(MenuContext);
 
   const classes = classNames(
-    'meun-item',
+    'yj-menu-item',
     className,
     {
       'is-disabled': disabled,
