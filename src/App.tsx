@@ -50,23 +50,44 @@ function App() {
 
         <br />
 
-        <Menu
-          defaultIndex={1}
-          onSelect={num => console.log(num)}
-        >
-          {
-            ['item-a', 'item-b', 'item-c'].map((str, index) => (
-              <MenuItem
-                key={str}
-                index={index}
-                disabled={index === 1}
+        <div style={{ margin: 32 }}>
+          <Menu
+            defaultIndex={1}
+            onSelect={num => console.log(num)}
+          >
+            {
+              ['item-a', 'item-b', 'item-c'].map((str, index) => (
+                <MenuItem
+                  key={str}
+                  index={index}
+                  disabled={index === 1}
 
-              >
-                {str}
-              </MenuItem>
-            ))
-          }
-        </Menu>
+                >
+                  {str}
+                </MenuItem>
+              ))
+            }
+          </Menu>
+
+          <Menu
+            mode='vertical'
+            defaultIndex={1}
+            onSelect={num => console.log(num)}
+          >
+            {
+              ['item-a-vertical', 'item-b-vertical', 'item-c-vertical'].map((str, index) => (
+                <MenuItem
+                  key={str}
+                  index={index}
+                  disabled={index === 1}
+
+                >
+                  {str}
+                </MenuItem>
+              ))
+            }
+          </Menu>
+        </div>
 
         <h1>h1</h1>
         <h3>h3</h3>

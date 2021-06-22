@@ -30,9 +30,9 @@ const Menu: React.FC<MenuProps> = ({
   const [curActive, setCurActive] = useState(defaultIndex);
 
   const classes = classNames(
-    'menu',
+    'yj-menu',
     className,
-    { 'menu-vertical': mode === 'vertical' }
+    { 'yj-menu-vertical': mode === 'vertical' }
   );
 
   const handleClick = (index: number) => {
