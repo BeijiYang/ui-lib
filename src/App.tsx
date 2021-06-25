@@ -59,15 +59,13 @@ function App() {
               ['item-a', 'item-b', 'item-c'].map((str, index) => (
                 <MenuItem
                   key={str}
-                  index={index}
-                  disabled={index === 1}
+                  disabled={index === 2}
 
                 >
                   {str}
                 </MenuItem>
               ))
             }
-            <li>kkk</li>
           </Menu>
 
           <Menu
@@ -79,8 +77,7 @@ function App() {
               ['item-a-vertical', 'item-b-vertical', 'item-c-vertical'].map((str, index) => (
                 <MenuItem
                   key={str}
-                  index={index}
-                  disabled={index === 1}
+                  disabled={index === 2}
 
                 >
                   {str}
