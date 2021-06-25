@@ -44,4 +44,6 @@ const MenuItem: React.FC<MenuItemProps> = ({
   );
 };
 
+MenuItem.displayName = 'MenuItem';
+
 export default MenuItem;
