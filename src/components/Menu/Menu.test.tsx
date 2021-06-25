@@ -16,13 +16,13 @@ const testVerticalProps: MenuProps = {
 
 const renderMenuToTest = (props: MenuProps) => (
   <Menu {...props}>
-    <MenuItem index={0}>
+    <MenuItem>
       active
     </MenuItem>
-    <MenuItem index={1} disabled>
+    <MenuItem disabled>
       disabled
     </MenuItem>
-    <MenuItem index={2}>
+    <MenuItem>
       not active
     </MenuItem>
   </Menu>
