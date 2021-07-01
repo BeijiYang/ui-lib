@@ -3,6 +3,7 @@ import './styles/index.scss';
 import Button, { ButtonSize, ButtonType } from './components/Button/Button';
 import Menu from './components/Menu/Menu';
 import MenuItem from './components/Menu/MenuItem';
+import SubMenu from './components/Menu/SubMenu';
 
 function App() {
   return (
@@ -84,6 +85,47 @@ function App() {
                 </MenuItem>
               ))
             }
+          </Menu>
+
+          <Menu
+            defaultIndex={1}
+            onSelect={num => console.log(num)}
+          >
+            <MenuItem>
+              Item One
+            </MenuItem>
+            <SubMenu title="Dropdown">
+              <MenuItem>
+                Dropdown One
+              </MenuItem>
+              <MenuItem>
+                Dropdown Two
+              </MenuItem>
+            </SubMenu>
+            <MenuItem>
+              Item Three
+            </MenuItem>
+          </Menu>
+
+          <Menu
+            defaultIndex={1}
+            onSelect={num => console.log(num)}
+            mode='vertical'
+          >
+            <MenuItem>
+              Item One
+            </MenuItem>
+            <SubMenu title="Dropdown">
+              <MenuItem>
+                Dropdown One
+              </MenuItem>
+              <MenuItem>
+                Dropdown Two
+              </MenuItem>
+            </SubMenu>
+            <MenuItem>
+              Item Three
+            </MenuItem>
           </Menu>
         </div>
 
