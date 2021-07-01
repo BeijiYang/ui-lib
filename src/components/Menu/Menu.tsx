@@ -16,6 +16,7 @@ export interface MenuProps {
 interface IMenuContext {
   index: number;
   onSelect?: SelectFn;
+  mode?: MenuMode;
 };
 
 export const MenuContext = createContext<IMenuContext>({ index: 0 });
@@ -33,7 +34,10 @@ const Menu: React.FC<MenuProps> = ({
   const classes = classNames(
     'yj-menu',
     className,
-    { 'yj-menu-vertical': mode === 'vertical' }
+    {
+      'yj-menu-vertical': mode === 'vertical',
+      'yj-menu-horizontal': mode !== 'vertical'
+    }
   );
 
   const handleClick = (index: number) => {
@@ -46,15 +50,15 @@ const Menu: React.FC<MenuProps> = ({
   const passedContext: IMenuContext = {
     index: curActive || 0,
     onSelect: handleClick,
+    mode,
   };
-
 
   const renderChildren = () => React.Children.map(
     children,
     (child, index) => {
       const childElement = child as React.FunctionComponentElement<MenuItemProps>;
       const { type: { displayName } } = childElement;
-      if (displayName === 'MenuItem') {
+      if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, { index });
       } else {
         console.error('Warning: Menu contains a child that is not a MeunItem component.');
