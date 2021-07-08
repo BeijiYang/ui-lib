@@ -45,6 +45,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
   const clickEvents = context.mode === 'vertical'
                         ? { onClick: handleClick }
                         : {}
+
   const hoverEvents = context.mode !== 'vertical'
                         ? {
                             onMouseEnter: (evt: React.MouseEvent) => { handleMouse(evt, true) },
