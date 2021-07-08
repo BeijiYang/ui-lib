@@ -3,10 +3,10 @@ import classNames from 'classnames';
 import { MenuItemProps } from './MenuItem';
 
 type MenuMode = 'horizontal' | 'vertical';
-type SelectFn = (selectedIndex: number) => void;
+type SelectFn = (selectedIndex: string) => void;
 
 export interface MenuProps {
-  defaultIndex?: number;
+  defaultIndex?: string;
   className?: string;
   mode?: MenuMode;
   style?: React.CSSProperties;
@@ -14,12 +14,12 @@ export interface MenuProps {
 };
 
 interface IMenuContext {
-  index: number;
+  index: string;
   onSelect?: SelectFn;
   mode?: MenuMode;
 };
 
-export const MenuContext = createContext<IMenuContext>({ index: 0 });
+export const MenuContext = createContext<IMenuContext>({ index: '0' });
 
 const Menu: React.FC<MenuProps> = ({
   className,
@@ -40,7 +40,7 @@ const Menu: React.FC<MenuProps> = ({
     }
   );
 
-  const handleClick = (index: number) => {
+  const handleClick = (index: string) => {
     setCurActive(index);
     if (onSelect) {
       onSelect(index);
@@ -48,7 +48,7 @@ const Menu: React.FC<MenuProps> = ({
   };
   
   const passedContext: IMenuContext = {
-    index: curActive || 0,
+    index: curActive || '0',
     onSelect: handleClick,
     mode,
   };
@@ -59,7 +59,9 @@ const Menu: React.FC<MenuProps> = ({
       const childElement = child as React.FunctionComponentElement<MenuItemProps>;
       const { type: { displayName } } = childElement;
       if (displayName === 'MenuItem' || displayName === 'SubMenu') {
-        return React.cloneElement(childElement, { index });
+        return React.cloneElement(childElement, {
+          index: index.toString()
+        });
       } else {
         console.error('Warning: Menu contains a child that is not a MeunItem component.');
       }
@@ -80,7 +82,7 @@ const Menu: React.FC<MenuProps> = ({
 };
 
 Menu.defaultProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   mode: 'horizontal',
 };
 
