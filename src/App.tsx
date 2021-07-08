@@ -111,6 +111,7 @@ function App() {
             defaultIndex={'1'}
             onSelect={num => console.log(num)}
             mode='vertical'
+            defaultOpenSubMenus={['1']}
           >
             <MenuItem>
               Item One
