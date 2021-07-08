@@ -53,7 +53,7 @@ function App() {
 
         <div style={{ margin: 32 }}>
           <Menu
-            defaultIndex={1}
+            defaultIndex={'1'}
             onSelect={num => console.log(num)}
           >
             {
@@ -71,7 +71,7 @@ function App() {
 
           <Menu
             mode='vertical'
-            defaultIndex={1}
+            defaultIndex={'1'}
             onSelect={num => console.log(num)}
           >
             {
@@ -88,7 +88,7 @@ function App() {
           </Menu>
 
           <Menu
-            defaultIndex={1}
+            defaultIndex={'1'}
             onSelect={num => console.log(num)}
           >
             <MenuItem>
@@ -108,7 +108,7 @@ function App() {
           </Menu>
 
           <Menu
-            defaultIndex={1}
+            defaultIndex={'1'}
             onSelect={num => console.log(num)}
             mode='vertical'
           >
