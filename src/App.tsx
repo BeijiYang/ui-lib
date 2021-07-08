@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAnchor } from '@fortawesome/free-solid-svg-icons';
 import './styles/index.scss';
 import Button, { ButtonSize, ButtonType } from './components/Button/Button';
 import Menu from './components/Menu/Menu';
@@ -9,6 +11,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <FontAwesomeIcon icon={faAnchor} size="3x" />
+        <hr />
         <Button
           btnType={ButtonType.Link}
           href="https://www.google.com"
