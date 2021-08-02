@@ -10,7 +10,6 @@ const Transition: React.FC<TransitionProps> = ({
   children,
   classNames,
   animation,
-  wrapper,
   ...restProps
 }) => {
   const nodeRef = React.useRef(null);

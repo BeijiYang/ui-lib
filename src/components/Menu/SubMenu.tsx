@@ -61,10 +61,6 @@ const SubMenu: React.FC<SubMenuProps> = ({
 
   // render & filter non-menu-item stuff
   const renderChildren = () => {
-    // const subMenuClasses = classNames('yj-submenu', {
-    //   'yj-menu-opened': menuOpen,
-    // })
-
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>;
       if (childElement.type.displayName === 'MenuItem') {
@@ -83,7 +79,6 @@ const SubMenu: React.FC<SubMenuProps> = ({
           animation="zoom-in-top"
           
         >
-          {/* <ul className={subMenuClasses}> */}
           <ul className={'yj-submenu'}>
             {childrenComponent}
           </ul>

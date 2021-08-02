@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Icon from './components/Icon/Icon';
 import './styles/index.scss';
-import Button, { ButtonSize, ButtonType } from './components/Button/Button';
+import Button from './components/Button/Button';
 import Menu from './components/Menu/Menu';
 import MenuItem from './components/Menu/MenuItem';
 import SubMenu from './components/Menu/SubMenu';
+import Transition from './components/Transition/Transition';
 
 function App() {
+  const [hide, setHide] = useState(true);
   return (
     <div className="App">
       <header className="App-header">
         <Icon icon="anchor" size="3x" theme="dark" />
         <hr />
         <Button
-          btnType={ButtonType.Link}
+          btnType={'link'}
           href="https://www.google.com"
           disabled
         >
@@ -21,7 +23,7 @@ function App() {
         </Button>
 
         <Button
-          btnType={ButtonType.Link}
+          btnType={'link'}
           href="https://www.google.com"
           target='_blank'
         >
@@ -32,19 +34,19 @@ function App() {
           Button
         </Button>
 
-        <Button size={ButtonSize.Large}>
+        <Button size={'lg'}>
           Large Button
         </Button>
 
-        <Button size={ButtonSize.Small}>
+        <Button size={'sm'}>
           Small Button
         </Button>
 
-        <Button btnType={ButtonType.Primary}>
+        <Button btnType={'primary'}>
           Primary Button
         </Button>
         
-        <Button btnType={ButtonType.Danger}>
+        <Button btnType={'danger'}>
           Danger Button
         </Button>
 
@@ -139,6 +141,23 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <code>const str = 'Hello world';</code>
+        <hr />
+        <Button size='lg' onClick={() => setHide(!hide)}>Transition Test</Button>
+        <Transition
+          in={!hide}
+          timeout={300}
+          animation='zoom-in-bottom'
+        >
+          <h3>Transition Test Content</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, nemo. Culpa delectus labore deserunt in vel minima totam numquam natus sapiente, a nesciunt maxime similique porro dolores necessitatibus earum. Nihil.</p>
+        </Transition>
+        <Transition
+          in={!hide}
+          timeout={300}
+          animation='zoom-in-bottom'
+        >
+          <Button>Transition Test Content</Button>
+        </Transition>
         <hr />
         <a
           className="App-link"
