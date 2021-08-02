@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import Button, { ButtonProps, ButtonType ,ButtonSize } from './Button';
+import Button, { ButtonProps } from './Button';
 
 const defaultProps = {
   onClick: jest.fn()
 }
 
 const testProps: ButtonProps = {
-  btnType: ButtonType.Primary,
-  size: ButtonSize.Large,
+  btnType: 'primary',
+  size: 'lg',
   className: 'klass'
 }
 
 const linkProps: ButtonProps = {
-  btnType: ButtonType.Link,
+  btnType: 'link',
   href: 'https://dummyURL'
 }
 

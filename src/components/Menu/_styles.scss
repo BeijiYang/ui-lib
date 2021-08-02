@@ -84,17 +84,16 @@
     position: absolute;
     left: 0;
     top: calc(100% + 8px);
+    z-index: 100;
   }
 
   .yj-submenu {
     background: $white;
-    z-index: 100;
     border: $menu-border-width solid $menu-border-color;
     box-shadow: $submenu-box-shadow;
   }
 
    .yj-submenu.yj-menu-opened{
-    // display: block;
     position: absolute;
     left: 0;
     top: calc(100% + 8px);
