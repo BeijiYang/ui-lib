@@ -2,6 +2,8 @@ import React, { useContext, FunctionComponentElement, useState } from 'react';
 import classNames from 'classnames';
 import { MenuContext } from './Menu';
 import { MenuItemProps } from './MenuItem';
+import Icon from '../Icon/Icon';
+import Transition from '../Transition/Transition';
 
 export interface SubMenuProps {
   index?: string;
@@ -25,7 +27,11 @@ const SubMenu: React.FC<SubMenuProps> = ({
   const classes = classNames(
     'yj-menu-item yj-submenu-item',
     className,
-    { 'is-active': context.index === index }
+    {
+      'is-active': context.index === index,
+      'is-opened': menuOpen,
+      'is-vertical': context.mode === 'vertical'
+    }
   );
 
   const handleClick = (evt: React.MouseEvent) => {
@@ -55,9 +61,9 @@ const SubMenu: React.FC<SubMenuProps> = ({
 
   // render & filter non-menu-item stuff
   const renderChildren = () => {
-    const subMenuClasses = classNames('yj-submenu', {
-      'yj-menu-opened': menuOpen,
-    })
+    // const subMenuClasses = classNames('yj-submenu', {
+    //   'yj-menu-opened': menuOpen,
+    // })
 
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>;
@@ -70,9 +76,19 @@ const SubMenu: React.FC<SubMenuProps> = ({
       }
     });
     return (
-      <ul className={subMenuClasses}>
-        {childrenComponent}
-      </ul>
+      <div className={'yj-submenu-wrapper'}>
+        <Transition
+          in={menuOpen}
+          timeout={300}
+          animation="zoom-in-top"
+          
+        >
+          {/* <ul className={subMenuClasses}> */}
+          <ul className={'yj-submenu'}>
+            {childrenComponent}
+          </ul>
+        </Transition>
+      </div>
     );
   };
 
@@ -84,6 +100,7 @@ const SubMenu: React.FC<SubMenuProps> = ({
         {...clickEvents}
       >
         {title}
+        <Icon icon="angle-down" className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>
