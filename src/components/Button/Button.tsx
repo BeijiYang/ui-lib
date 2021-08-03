@@ -7,7 +7,9 @@ export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 interface BaseButtonProps {
   className?: string;
   disabled?: boolean;
+  /** leaving this value empty makes the button medium-sized */
   size?: ButtonSize;
+  /** set the type of the button */
   btnType?: ButtonType;
   href?: string;
   children: React.ReactNode;
