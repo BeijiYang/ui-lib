@@ -9,7 +9,6 @@ const styles: React.CSSProperties = {
   alignItems: 'center',
   justifyContent: 'space-around',
   height: '50vh',
-
 };
 
 const defaultButton = () => (
