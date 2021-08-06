@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, ReactElement } from "react";
+import React, { ChangeEvent, InputHTMLAttributes, ReactElement } from "react";
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import classNames from "classnames";
 import Icon from "../Icon/Icon";
@@ -13,6 +13,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size
   icon?: IconProp;
   prefix?: Affix;
   suffix?: Affix;
+  onChange?: (evt: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Input: React.FC<InputProps>  = ({
@@ -31,6 +32,18 @@ const Input: React.FC<InputProps>  = ({
     'yj-input-group-prefix': prefix,
     'yj-input-group-suffix': suffix
   });
+
+  const fixControlledComp = (value: any) => (
+    (value === null || typeof value === 'undefined')
+      ? ''
+      : value
+  );
+
+  if ('value' in restProps) {
+    delete restProps.defaultValue;
+    restProps.value = fixControlledComp(restProps.value);
+  };
+
   return (
     <div className={classes} style={style}>
       {prefix && <div className="input-group-prefix">{ prefix }</div>}

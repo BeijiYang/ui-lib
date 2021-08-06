@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Input from './Input';
@@ -11,12 +11,27 @@ const styles: React.CSSProperties = {
   height: '50vh',
 };
 
+const ControlledInput = () => {
+  const [value, setValue] = useState('');
+  return (
+    <Input
+      value={value}
+      defaultValue="default value"
+      onChange={evt => setValue(evt.target.value)}
+      style={{ width: '300px' }}
+    />
+  );
+};
+
 const defaultInput = () => (
+  <div style={styles}>
     <Input
       style={{ width: '300px' }}
       placeholder="placeholder"
       onChange={action('changed')}
     />
+    <ControlledInput />
+  </div>
 );
 
 const disabledInput = () => (
